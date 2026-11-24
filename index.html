@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Solve a pond mystery with Tommy. Explore evidence, recover four seals, and open the Lantern House."><title>The Missing Moon Lantern | Tommy the Tiny Turtle</title>
+<style>
+:root{--ink:#242d21;--green:#365943;--cream:#faf7ed;--line:#dedfce}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 system-ui,sans-serif}a{color:inherit}a:focus-visible,summary:focus-visible{outline:2px solid #365943;outline-offset:5px}.wrap{max-width:1290px;padding:0 5%;margin:auto}header{display:flex;align-items:center;justify-content:space-between;min-height:78px;border-bottom:1px solid var(--line);gap:18px}.logo{font: bold 28px Georgia;text-decoration:none}.logo span{color:#657c4b}nav{display:flex;gap:clamp(14px,4vw,42px)}nav a{font-size:14px;text-decoration:none}nav a:hover,.card summary:hover{text-decoration:underline}.hero{display:grid;grid-template-columns:1fr 1.04fr;gap:5%;align-items:center;padding:42px 0 52px}.eyebrow,.type{font-size:11px;text-transform:uppercase;letter-spacing:.17em;font-weight:750;color:#466346}h1,h2,h3{font-family:Georgia,serif;line-height:1.02;font-weight:400;margin:0}h1{font-size:clamp(65px,8.6vw,132px);letter-spacing:-.085em;margin:11px 0 22px}h1 em{color:#486549}p{margin:0}.intro{max-width:355px;color:#515b4c;font-size:18px}.cta{display:inline-block;background:#314d36;color:white;padding:12px 19px;border-radius:99px;text-decoration:none;margin-top:25px;font-size:14px}.cta:hover{background:#203e29}.portrait{position:relative;margin:0;aspect-ratio:1.21;background:#e4ebcd;border-radius:48% 48% 12px 12px;overflow:hidden}.portrait canvas{width:100%;height:100%;display:block}.portrait figcaption{position:absolute;bottom:13px;left:17px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#304c37}.section{border-top:1px solid var(--line);padding:39px 0 48px}h2{font-size:clamp(39px,5.6vw,67px);letter-spacing:-.06em;margin:5px 0 23px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fffdf4;border:1px solid var(--line);padding:15px;border-radius:13px}.card canvas{width:100%;display:block;border-radius:8px;margin-bottom:14px}.card h3{font-size:26px;margin:4px 0 10px}.card summary{cursor:pointer;font-size:14px;color:#365943;width:fit-content}.card details p{font-size:14px;margin-top:10px;color:#515b4c}.about p{max-width:590px;color:#515b4c}footer{border-top:1px solid var(--line);padding:19px 0 25px;color:#515b4c;font-size:13px}@media(max-width:700px){.hero{grid-template-columns:1fr;gap:26px;padding-top:30px}.grid{grid-template-columns:1fr}.card canvas{max-height:190px;object-fit:cover}header{min-height:60px}.portrait{max-width:520px}h1{font-size:clamp(68px,16vw,100px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{--pond:#c3d8bc;--moss:#294331}body{background:radial-gradient(ellipse at 82% 15%,#edf0d9,transparent 40%),var(--cream)}.hero{padding-top:55px;padding-bottom:57px}.hero>div{animation:arrive .7s ease-out both}.portrait{isolation:isolate;box-shadow:0 20px 65px #3a53371c}.portrait canvas{animation:pond-breathe 13s ease-in-out infinite alternate}.portrait figcaption{z-index:2;background:#f4f6dfdf;padding:6px 10px;border-radius:30px}.spark{position:absolute;z-index:1;color:#fff8ca;font-size:25px;animation:drift 6s ease-in-out infinite;pointer-events:none;text-shadow:0 0 12px #fff3a8}.spark:nth-of-type(2){animation-delay:-2s}.spark:nth-of-type(3){animation-delay:-4s}.ripple{position:absolute;width:22%;height:9%;border:1px solid #eff9d2;border-radius:50%;animation:ripple 4.5s ease-out infinite;pointer-events:none}.ripple.second{animation-delay:-2.3s}.diary{grid-template-columns:repeat(3,1fr)}.card{transition:transform .24s,box-shadow .24s}.card:hover,.card:focus-within{transform:translateY(-4px);box-shadow:0 9px 22px #2d453515}.card details[open] p{animation:arrive .32s ease-out both}.extra{padding:20px;background:#eef0d9}.extra .stamp{display:block;font-size:36px;margin-bottom:16px}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0 0;max-width:720px}.facts div{background:#e9edd9;padding:12px 15px;border-radius:8px}.facts dt{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#455d46}.facts dd{margin:4px 0 0;font-family:Georgia,serif;font-size:19px}.motion{border:1px solid var(--line);background:#fffdf4;color:var(--ink);border-radius:99px;padding:7px 11px;font:inherit;font-size:12px;cursor:pointer}.motion:focus-visible,.game button:focus-visible,.board:focus-visible{outline:2px solid #284732;outline-offset:3px}.game{display:grid;grid-template-columns:.84fr 1.16fr;gap:clamp(20px,5vw,60px);padding:clamp(18px,4vw,46px);border-radius:24px;background:#e3ead1;border:1px solid #d4dec5}.game h2{margin-bottom:13px}.game p{color:#405744}.game .hint{margin:12px 0;font-size:13px}.game button{font:inherit;color:var(--moss);cursor:pointer}.game .action{border:1px solid #46664b;border-radius:99px;background:#f7f8e8;padding:8px 14px;font-size:14px;margin:4px 4px 5px 0}.game .action:hover,.game .direction:hover{background:#d0e1b8}.game .action:disabled{opacity:.45;cursor:default}.stats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 9px}.stats span{background:#f4f7e7;border-radius:20px;padding:4px 10px;font-size:12px}.board{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;background:#416c59;border-radius:12px;padding:7px}.tile{border:0;border-radius:7px;background:#add0b4;aspect-ratio:1;min-width:0;padding:0;font-size:clamp(14px,3.1vw,30px)!important;line-height:1!important;position:relative}.tile:nth-child(3n){background:#b9d7b8}.tile:hover{box-shadow:inset 0 0 0 2px #365b43}.tile[data-kind=rock]{background:#9fb3a0}.tile[data-kind=home]{background:#d1d699}.tile[data-kind=leaf] span{display:inline-block;animation:bob 2.6s ease-in-out infinite}.tile[data-kind=turtle]{background:#e8e1a7}.tile[data-kind=turtle] span{display:inline-block;animation:hop .23s ease-out}.directions{display:flex;justify-content:center;gap:5px;margin-top:10px}.game .direction{width:43px;height:36px;border:1px solid #b4c6a6;border-radius:7px;background:#f5f7e8}.status{min-height:3.2em;margin-top:10px;font-size:14px;font-weight:650}.game:has(.board[data-won=true]) .board{animation:celebrate .6s ease-out}.motion-off *,.motion-off *::before,.motion-off *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}@keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes pond-breathe{from{transform:scale(1.01)}to{transform:scale(1.075) translateY(-1%)}}@keyframes drift{0%,100%{transform:translate(0,0);opacity:.5}50%{transform:translate(15px,-19px);opacity:1}}@keyframes ripple{from{transform:scale(.35);opacity:.85}to{transform:scale(1.5);opacity:0}}@keyframes bob{50%{transform:translateY(-3px) rotate(9deg)}}@keyframes hop{from{transform:scale(.74) translateY(4px)}to{transform:scale(1)}}@keyframes celebrate{50%{box-shadow:0 0 0 6px #abc47e;transform:scale(1.02)}}@media(max-width:760px){.game{grid-template-columns:1fr}.hero{padding-top:33px}.diary{grid-template-columns:repeat(2,1fr)}}@media(max-width:470px){.diary{grid-template-columns:1fr}.facts{grid-template-columns:1fr}header{flex-wrap:wrap;gap:7px 12px;padding:10px 0}nav{gap:12px}nav a{font-size:12px}.motion{padding:5px 7px}.tile{font-size:20px!important}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.dragonfly{position:absolute;left:70%;top:26%;width:30px;height:24px;z-index:1;animation:flight 10s ease-in-out infinite;pointer-events:none}.dragonfly::before,.dragonfly::after{content:'';position:absolute;left:0;width:27px;height:8px;border-radius:80%;background:#f9fbdebb;box-shadow:0 0 1px #476f60;animation:wings .24s ease-in-out infinite alternate}.dragonfly::after{top:9px;animation-delay:-.15s}.dragonfly b{position:absolute;width:4px;height:25px;left:12px;top:-3px;background:#365f58;border-radius:50%;z-index:1}.card canvas{transition:filter .3s}.card:hover canvas{filter:saturate(1.23)}.card:hover .stamp{animation:stamp-wave .52s ease-in-out;transform-origin:left bottom}@keyframes flight{0%,100%{transform:translate(0,0) rotate(20deg)}25%{transform:translate(-65px,-32px) rotate(-35deg)}55%{transform:translate(-10px,28px) rotate(30deg)}78%{transform:translate(41px,-15px) rotate(-20deg)}}@keyframes wings{from{transform:scaleX(.55) rotate(-13deg)}to{transform:scaleX(1) rotate(13deg)}}@keyframes stamp-wave{35%{transform:rotate(-12deg) translateY(-5px)}65%{transform:rotate(8deg)}}
+.tile[data-kind=current]{background:#a4ccd1;color:#244b53}.tile[data-kind=current] span{display:inline-block;animation:bob 2.8s ease-in-out infinite}.challenge{border-top:1px solid #b9c9ad;margin-top:12px;padding-top:12px}.challenge h3,.day-heading{font-size:24px}.challenge ul{list-style:none;padding:0;margin:8px 0;display:grid;gap:4px;font-size:13px}.challenge li{background:#f5f7e8;border-radius:6px;padding:4px 8px}.challenge li[data-state=earned]{background:#ccdfab}.challenge li[data-state=missed]{background:#eddec5}.challenge p,.pond-picker{font-size:13px}.pond-picker{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}.pond-picker select{font:inherit;background:#f7f8e8;color:#294331;border:1px solid #657c5d;border-radius:5px;padding:5px}.day-heading{margin:24px 0 10px}.daybook{padding:0;list-style:none;display:grid;gap:7px;max-width:690px}.daybook li{padding:8px 12px;border-radius:6px;background:#eef0df}.daybook time{display:inline-block;min-width:85px;font-size:13px;color:#3b563f;font-weight:700}
+.tile[data-flow]:not([data-flow=''])::after{content:attr(data-flow);position:absolute;right:1px;bottom:1px;background:#244b53;color:white;border-radius:4px;font-size:12px;padding:2px;line-height:1}
+.tile[data-kind=key]{background:#f1d99b}.tile[data-kind=gate]{background:#6f8b66;color:#fff9e2}.tile[data-kind=open-gate]{background:#c1d7a2}.arcade{background:#eee6d5;border-color:#e3d7bf}.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.memory button{aspect-ratio:1;border:1px solid #b9c6a6;border-radius:12px;background:#dce8c6;color:#31513c;font-size:clamp(20px,5vw,39px);transition:transform .2s,background .2s}.memory button:hover{transform:translateY(-2px)}.memory button[data-face=up]{background:#fff9de;animation:hop .25s ease-out}.memory button[data-face=matched]{background:#aec99b;animation:hop .25s ease-out}.memory button[aria-disabled=true]{cursor:default}.postcard{background:#eee8d5;border:1px solid #dfd5bd;border-radius:16px;padding:clamp(16px,4vw,32px);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;margin-top:18px}.postcard .seal{border:1px solid #c3a880;border-radius:14px;background:#fff5da;font-size:clamp(24px,5vw,42px);padding:8px 12px;cursor:pointer}.postcard .seal:focus-visible{outline:2px solid #365943;outline-offset:4px}.postcard .seal:hover{animation:stamp-wave .55s ease-in-out}.postcard h3{font-size:clamp(25px,4vw,39px);margin-bottom:6px}.postcard p{color:#405744}.friend .stamp{font-size:45px}.friend p{color:#405744}
+@media(max-width:470px){nav{flex-wrap:wrap}}
+.sticker-hunt{background:#e9edd7;border:1px solid #d6dec1;border-radius:20px;padding:clamp(16px,4vw,36px)}.sticker-hunt h2{margin-bottom:10px}.sticker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;padding:0;list-style:none}.sticker-grid li{background:#f9f7e9;border:1px dashed #aebc9c;padding:12px;border-radius:10px;display:grid;gap:4px;min-width:0}.sticker-grid li[data-found=true]{background:#d5e5ba;border-style:solid}.sticker-grid li[data-found=true] .sticker-symbol{animation:hop .25s ease-out}.sticker-symbol{font-size:27px}.sticker-grid small{color:#425741}.hunt-button{border:1px solid #75885d;background:#f6f3dc;border-radius:20px;padding:6px 11px;color:#2d4936;font:inherit;font-size:13px;cursor:pointer}.hunt-button:hover{background:#e1e9bd}.hunt-button:focus-visible{outline:2px solid #365943;outline-offset:3px}.hunt-button[data-found=true]{background:#e2ebcc}.hero-hunt{position:absolute;z-index:3;right:10px;bottom:12px}.field-hunt{margin-top:12px}.pond-window{margin:17px 0 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:16px;align-items:center}.pond-scene{min-height:160px;border-radius:90px 90px 10px 10px;background:linear-gradient(#f0e9b6 0 49%,#91b397 49%);position:relative;display:grid;place-items:center;font-size:55px;overflow:hidden;transition:background .3s}.pond-scene::after{content:'';position:absolute;bottom:20px;width:74%;height:20px;border:1px solid #f4f8d8;border-radius:50%;animation:ripple 4s ease-out infinite}.pond-scene[data-mood=rain]{background:repeating-linear-gradient(116deg,#effbff33 0 1px,transparent 1px 14px),linear-gradient(#8bb0b4 0 49%,#689890 49%)}.pond-scene[data-mood=night]{background:linear-gradient(#344666 0 49%,#416b71 49%)}.pond-moods{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}.pond-moods button[aria-pressed=true]{background:#37573f;color:#fff}.pond-caption{min-height:3.2em;color:#405744}.hunt-status{min-height:1.6em;font-size:14px;color:#405744}@media(max-width:650px){.pond-window{grid-template-columns:1fr}.sticker-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:390px){.hero-hunt{bottom:38px}.sticker-grid li{padding:8px}}
+.trail{background:#e5ead2;border:1px solid #d3ddbb;border-radius:24px;padding:clamp(16px,4vw,38px)}.trail h2{margin-bottom:12px}.trail-map{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:17px 0 0;padding:0;list-style:none}.trail-map a{display:grid;gap:5px;height:100%;padding:11px;border:1px solid #b9c8a4;border-radius:10px;background:#faf7e7;text-decoration:none;font-weight:650}.trail-map a:hover{background:#f0edcc}.trail-map small{color:#405744;font-weight:400}.trail-stop h3{margin:4px 0 10px}.trail-stop .stamp{margin:0}.trail-actions{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}.trail-feedback{min-height:3em;margin-top:8px;font-size:13px;color:#405744}.reward{margin-top:16px;padding:14px;border-radius:12px;background:#f8edcd;border:1px solid #e7d5a8}.reward .hunt-button{margin:8px 0}.reward h3{font-size:29px;margin:7px 0}.sticker-grid details{font-size:13px}.sticker-grid details summary{cursor:pointer}.sticker-grid details p{margin:4px 0}.hunt-button:disabled{opacity:.6;cursor:default}@media(max-width:650px){.trail-map{grid-template-columns:repeat(2,1fr)}}@media(max-width:360px){.trail-map{grid-template-columns:1fr}}
+.mystery-hero{background:#182b2a;color:#f9f0d7;border-radius:0 0 26px 26px;padding:clamp(20px,4vw,54px);margin-top:0;gap:clamp(18px,4vw,55px);background-image:radial-gradient(ellipse at 79% 24%,#3d604f,transparent 63%)}.mystery-hero h1{font-size:clamp(48px,7.5vw,104px);letter-spacing:-.073em;line-height:.92}.mystery-hero h1 em{color:#f0c984}.mystery-hero .eyebrow{color:#efd7a1}.mystery-hero .intro{color:#e2e9d5}.mystery-hero .cta{background:#f0ce8d;color:#20362b;font-weight:700}.mystery-hero .cta:hover{background:#ffe3a8}.mystery-hero .portrait{background:#25372e}.mystery-hero canvas{filter:brightness(.8) saturate(.87) hue-rotate(10deg)}.case-board{background:#e8ebd9;border:1px solid #d5ddc6;border-radius:21px;padding:clamp(13px,3vw,33px)}.case-board h2{margin-bottom:10px}.case-lead{max-width:66ch;color:#405744}.case-meter{margin:12px 0;color:#294b3b;font-weight:700}.case-locations{display:flex;flex-wrap:wrap;gap:6px;margin:13px 0 20px}.case-locations a,.case-link{font-size:13px;color:#294b3b}.case-locations a{border:1px solid #b5c3a2;background:#fbf7e8;border-radius:30px;padding:5px 10px;text-decoration:none}.case-locations a:hover{background:#dbe7bd}.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.lock{padding:14px;border:1px solid #cbd5bc;border-radius:12px;background:#fbf8ea}.lock h3{font-size:27px;margin:0 0 8px}.lock p{font-size:14px;color:#405744}.lock form{margin:12px 0 0}.lock label{display:grid;gap:4px;font-size:13px;font-weight:650}.lock-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-bottom:8px}.lock input,.lock select{margin:0;border:1px solid #8ca188;border-radius:6px;padding:7px 8px;background:#fffdf4;color:#242d21;font:inherit;width:100%;max-width:260px}.lock input:focus-visible,.lock select:focus-visible{outline:2px solid #365943;outline-offset:2px}.lock .hunt-button{margin-top:7px}.lock details{font-size:13px;margin-top:6px}.lock details p{margin:5px 0}.lock .lock-result{min-height:1.5em;margin-top:6px;font-weight:650}.lock[data-solved=true]{background:#e4edcd;border-color:#a6bd92}.case-final{margin-top:13px;background:#f1e7ca}.case-final[data-solved=true]{background:#f6e3aa}.case-seals{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}.case-seals span{border:1px solid #c4ad77;background:#fff7db;border-radius:6px;padding:4px 8px;font-size:13px}.case-evidence{padding:14px 16px;margin:16px 0;border-left:4px solid #8da275;border-radius:3px 9px 9px 3px;background:#eef1df}.case-evidence h3{font-size:23px;margin:5px 0 7px}.case-evidence blockquote{margin:0 0 9px;color:#304b3a}.case-evidence p{margin:0 0 9px}.notebook{margin:12px 0 17px;border:1px solid #c1cead;border-radius:8px;padding:9px 11px;background:#f9f6e8}.notebook summary{cursor:pointer;font-weight:700}.notebook ul{padding-left:19px;margin:6px 0}.notebook li{margin:5px 0;font-size:13px}.case-ending{margin-top:11px;border-left:4px solid #cd9e52;padding:8px 12px;background:#fff4d2}.case-ending h3{margin-bottom:6px}.case-return{font-size:13px;margin-left:8px}@media(max-width:690px){.case-grid{grid-template-columns:1fr}.mystery-hero .portrait{max-width:none}.case-return{margin-left:4px}}
+</style></head>
+<body><div class="wrap"><header><a class="logo" href="#top">Tommy<span>.</span></a><nav aria-label="Main"><a href="#mystery">Mystery</a><a href="#adventures">Adventures</a><a href="#field-guide">Field guide</a><a href="#about">About</a><a href="#play">Games</a><a href="#friends">Friends</a><a href="#trail-map">Hunt</a></nav><button type="button" class="motion" id="motion" aria-pressed="false">Pause motion</button></header>
+<main id="top"><section class="hero mystery-hero"><div><p class="eyebrow">A mystery at Tommy’s pond</p><h1>The Missing<br><em>Moon Lantern</em></h1><p class="intro">It’s almost time for the Moon Parade, and the lantern is locked away. Follow Tommy’s trail, compare the clues, and open the Lantern House before the first lap.</p><a class="cta" href="#mystery">Start the investigation <span aria-hidden="true">↘</span></a></div><figure class="portrait"><canvas id="portrait" width="720" height="595" role="img" aria-label="Tommy, a wide-eyed baby green turtle, rests in a sunny pond among lily pads."></canvas><span aria-hidden="true" class="spark" style="top:25%;left:25%">✦</span><span aria-hidden="true" class="spark" style="top:46%;left:75%">✧</span><span aria-hidden="true" class="spark" style="top:39%;left:13%">✦</span><span aria-hidden="true" class="ripple" style="top:77%;left:65%"></span><span aria-hidden="true" class="ripple second" style="top:72%;left:15%"></span><span class="dragonfly" aria-hidden="true"><b></b></span><button type="button" class="hunt-button hero-hunt" data-treasure="spark">Catch a sparkle ✦</button><figcaption>Tommy at his favourite pond</figcaption></figure></section>
+<section class="section" id="mystery"><div class="case-board">
+<p class="eyebrow">The investigation</p><h2>Open the Lantern House</h2><p class="case-lead">The parade lantern is inside. Four locks each give you a seal. Solve them in any order, then use the inscription to work out the final code.</p>
+<nav class="case-locations" aria-label="Investigation locations"><a href="#adventures">Journal</a><a href="#friends">Witnesses</a><a href="#field-guide">Field guide</a><a href="#trail-stops">Creek &amp; nursery</a><a href="#pond-window">Lookout</a><a href="#lantern-path">Bridge record</a></nav>
+<details class="notebook" id="notebook"><summary>Case notebook <span id="notebook-count">· 0 notes</span></summary><p id="notebook-empty">Save evidence from the locations above to keep it together here.</p><ul id="notebook-list"></ul></details>
+<p class="case-meter" id="case-meter"></p>
+<div class="case-grid">
+<article class="lock" id="lock-parade"><h3>The parade roll</h3><p>Who walked first, second, third, and fourth at the rehearsal? Compare the <a href="#journal-clue">journal</a> with <a href="#witness-clue">the witnesses</a>.</p><form data-lock="parade"><div class="lock-fields"><label>First<select name="first" required></select></label><label>Second<select name="second" required></select></label><label>Third<select name="third" required></select></label><label>Fourth<select name="fourth" required></select></label></div><button type="submit" class="hunt-button">Check the order</button></form><details><summary>Hint</summary><p>“Immediately ahead” means the two walkers stood next to each other.</p></details><p class="lock-result" id="result-parade" role="status"></p></article>
+<article class="lock" id="lock-word"><h3>The keeper’s word</h3><p>The four lines at the <a href="#pond-window">lookout</a> hide a word. The <a href="#nursery-clue">nursery tag</a> tells you how to read them.</p><form data-lock="word"><label>Four-letter word<input name="answer" required maxlength="4" spellcheck="false" autocomplete="off"></label><button type="submit" class="hunt-button">Try the word</button></form><details><summary>Hint</summary><p>Look at the start of each line, from top to bottom.</p></details><p class="lock-result" id="result-word" role="status"></p></article>
+<article class="lock" id="lock-weight"><h3>The counterweight</h3><p>Combine the <a href="#weight-clue">weighing notes</a> and the <a href="#creek-clue">creek inventory</a> to work out what the lantern’s supply tray weighs.</p><form data-lock="weight"><label>Total weight in pebbles<input name="answer" required inputmode="numeric" pattern="[0-9]{1,3}" maxlength="3" autocomplete="off"></label><button type="submit" class="hunt-button">Try the weight</button></form><details><summary>Hint</summary><p>Replace the shell in the first equation with a reed plus two pebbles.</p></details><p class="lock-result" id="result-weight" role="status"></p></article>
+<article class="lock" id="lock-compass"><h3>The lantern bearing</h3><p>Start where the <a href="#lantern-path">bridge record</a> says, then apply the three turns in order. Which way do you face at the end?</p><form data-lock="compass"><label>Final direction<select name="answer" required><option value="">Choose a direction</option><option>North</option><option>East</option><option>South</option><option>West</option></select></label><button type="submit" class="hunt-button">Check the bearing</button></form><details><summary>Hint</summary><p>A right turn from east faces south. A U-turn points you the opposite way.</p></details><p class="lock-result" id="result-compass" role="status"></p></article>
+</div>
+<article class="lock case-final" id="lock-final"><h3>The Lantern House door</h3><p>Arrange the four seals from left to right. Moon comes before Reed. Star sits immediately after Moon. Shell comes after Reed. Read the digits in that order.</p><div class="case-seals" id="case-seals" aria-label="Recovered seals"></div><form data-lock="final"><label>Four-digit code<input name="answer" required inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off"></label><button type="submit" class="hunt-button" id="case-open" disabled>Open the door</button></form><p class="lock-result" id="result-final" role="status"></p><div id="case-ending" class="case-ending" hidden><h3>The pond lights up</h3><p>The lantern was right where Tommy left it. He’d tucked it in the dry box when the rehearsals got rained out, then forgotten which side of the bridge he’d come from. Pip takes the first lap under the glow. Mabel carries the smallest lantern. Tommy saves you a spot at the front.</p><p>You earned the Moonlight Detective sticker. <a href="#stickers">See it in your sticker book</a>.</p></div></article>
+</div></section><section class="section" id="trail-map"><div class="trail"><p class="eyebrow">Tommy’s scavenger hunt</p><h2>The Little Pond Trail</h2><p>Explore the pond in any order. Collect the twelve trail stickers to open Tommy’s letter.</p><ul class="trail-map">
+<li><a href="#top">☀️ Sunny Bank <small data-zone="bank"></small></a></li><li><a href="#adventures">📖 Journal &amp; Field Guide <small data-zone="journal"></small></a></li><li><a href="#friends">💌 Friends by the Reeds <small data-zone="friends"></small></a></li><li><a href="#trail-stops">🌱 Beyond the Cattails <small data-zone="stops"></small></a></li><li><a href="#pond-window">🌙 Pond Lookout <small data-zone="lookout"></small></a></li><li><a href="#play">🏅 Pond Games <small data-zone="games"></small></a></li>
+</ul><a class="cta" href="#stickers">Open the sticker book ↓</a></div></section><section class="section" id="adventures"><p class="eyebrow">From my pond journal</p><h2>Little adventures</h2><aside class="case-evidence" id="journal-clue"><p class="eyebrow">Evidence · rehearsal journal</p><h3>Tommy’s muddy margin</h3><blockquote>“Mabel walked ahead of me. I know because I stepped around the little loop she left in the mud.”</blockquote><button type="button" class="hunt-button" data-evidence="journal">Save to notebook</button><a class="case-return" href="#lock-parade">Back to the parade lock</a></aside><div class="grid diary">
+<article class="card"><canvas id="rock" width="420" height="210" aria-hidden="true"></canvas><p class="type">Basking</p><h3>The sunniest rock</h3><details><summary>Read the story</summary><p>I tried three rocks. The first was slippery and the second was already taken. On the third, I fell asleep with one foot still in the water.</p></details></article>
+<article class="card"><canvas id="swim" width="420" height="210" aria-hidden="true"></canvas><p class="type">Exploring</p><h3>My first big swim</h3><details><summary>Read the story</summary><p>I swam all the way to the far lily pad. A dragonfly got there first. I stayed until its shadow moved, then followed it home.</p></details></article>
+<article class="card"><canvas id="leaf" width="420" height="210" aria-hidden="true"></canvas><p class="type">Collecting</p><h3>A very good leaf</h3><details><summary>Read the story</summary><p>I found a leaf with a hole just big enough to peek through. I brought it to my rock. By morning, the pond had borrowed it back.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🪶</span><p class="type">Field notes</p><h3>The reed that whistled</h3><details><summary>Read the story</summary><p>The wind played the same note three times. I waited for a fourth, but a duck walked through the reeds and changed the tune.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🫧</span><p class="type">Practice</p><h3>Six little bubbles</h3><details><summary>Read the story</summary><p>I tried my first dive with my eyes open. I counted six bubbles on the way down and forgot to count on the way up.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🌧️</span><p class="type">Weather</p><h3>Waiting out the rain</h3><details><summary>Read the story</summary><p>I tucked my feet under a bent lily pad. Every time a drop landed, the pad tipped a little. Eventually I got wet anyway, so I went for a swim.</p></details></article><article class="card extra"><span class="stamp" aria-hidden="true">🌙</span><p class="type">Night watch</p><h3>A moon in the shallows</h3><details><summary>Read the story</summary><p>I tried to swim around the moon’s reflection. Every time I paddled near it, the moon broke apart and came back behind me.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🍂</span><p class="type">Exploring</p><h3>Past the cattails</h3><details><summary>Read the story</summary><p>I finally went round the far side. The water was so still I could see my own feet. I stayed until a leaf made the first ripple.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🪵</span><p class="type">Basking</p><h3>The drifting log</h3><details><summary>Read the story</summary><p>I climbed onto a log to dry off. Halfway through my nap it bumped a branch. I woke up on the other side of the pond.</p></details></article><article class="card extra"><span class="stamp" aria-hidden="true">🪶</span><p class="type">Keepsakes</p><h3>Pip’s feather</h3><details><summary>Read the story</summary><p>Pip left a feather on my rock. I kept it dry until a gust floated it back to her. She preened it back into place. Or at least she tried.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🐸</span><p class="type">Evenings</p><h3>Pickles takes requests</h3><details><summary>Read the story</summary><p>I tapped three times on a lily stem. Pickles answered with two croaks. We tried again until we both forgot whose turn it was.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">☀️</span><p class="type">Morning rounds</p><h3>A spot in the sun</h3><details><summary>Read the story</summary><p>There was just enough room on the rock for me and Mabel, if I tucked my tail in. We stayed until the sun moved and the rock cooled.</p></details></article><article class="card extra"><span class="stamp" aria-hidden="true">🪨</span><p class="type">Keepsakes</p><h3>A pocket-sized moon</h3><details><summary>Read the story</summary><p>I found a white pebble in the mud. It looked like the moon, right down to the dents. I put it back so the pond could have another one.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🫧</span><p class="type">Friendship</p><h3>Bubbles for Mabel</h3><details><summary>Read the story</summary><p>I blew a bubble big enough for Mabel to see from her rock. She waved one antenna. I blew a second bubble so she could wave the other.</p></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🌱</span><p class="type">Small changes</p><h3>The first new reed</h3><details><summary>Read the story</summary><p>Last week the reed was shorter than my shell. Today I had to look up. I told it the view gets better from there.</p></details></article><article class="card extra"><span class="stamp" aria-hidden="true">🐚</span><p class="type">Trail journal</p><h3>The shell between the pages</h3><details><summary>Read the story</summary><p>I tucked a tiny shell into my journal for you. If the page looks lumpy, that’s where I stopped writing.</p><button type="button" class="hunt-button field-hunt" data-treasure="journal">Lift the bookmark</button></details></article></div></section>
+<section class="section" id="play" aria-labelledby="game-title"><div class="game">
+<div><p class="eyebrow">A pond puzzle</p><h2 id="game-title">Lily Pad Dash</h2><p id="rules">Collect every leaf, then swim to the yellow lily pad. Go around rocks. On a current tile, swim in the direction of the arrow.</p><p class="hint">In the last three ponds, collect the key to open the reed gate. <a href="#memory">Play Pond Pairs ↓</a></p><p class="hint" id="controls">Use arrow keys on the board, tap a neighbouring tile, or use the buttons below it.</p><button type="button" class="action" id="restart">Restart pond</button><button type="button" class="action" id="next" disabled>Next pond →</button><label class="pond-picker">Choose a pond <select id="pond-picker"></select></label>
+<div class="challenge"><h3>Pond challenges</h3><ul><li id="par-goal"></li><li id="clean-goal"></li></ul><p id="badge-total"></p></div><p class="status" id="game-status" role="status"></p></div>
+<div><div class="stats"><span id="level"></span><span id="leaves"></span><span id="moves"></span></div>
+<div class="board" id="board" tabindex="0" role="group" aria-label="Pond game board" aria-describedby="rules controls"></div>
+<div class="directions" aria-label="Movement controls"><button type="button" class="direction" data-key="ArrowLeft" aria-label="Swim left">←</button><button type="button" class="direction" data-key="ArrowUp" aria-label="Swim up">↑</button><button type="button" class="direction" data-key="ArrowDown" aria-label="Swim down">↓</button><button type="button" class="direction" data-key="ArrowRight" aria-label="Swim right">→</button></div></div>
+</div></section><section class="section" id="memory" aria-labelledby="memory-title"><div class="game arcade">
+<div><p class="eyebrow">Pond mini-game</p><h2 id="memory-title">Pond Pairs</h2><p>Flip two cards to find matching pond treasures. Find all six pairs in as few turns as you can.</p><button type="button" class="action" id="shuffle">Shuffle cards ↻</button><p class="status" id="memory-status" role="status"></p></div>
+<div><div class="stats"><span id="pair-count"></span><span id="turn-count"></span><span id="memory-best"></span></div><div class="memory" id="memory-board" role="group" aria-label="Pond Pairs cards"></div></div>
+</div></section><section class="section" id="field-guide"><p class="eyebrow">Tommy’s field guide</p><h2>What lives at the pond</h2><aside class="case-evidence" id="weight-clue"><p class="eyebrow">Evidence · weighing notes</p><h3>The old pebble scale</h3><p>One shell and two reeds weigh <strong>11 pebbles</strong> together. A shell weighs <strong>2 pebbles more</strong> than a reed.</p><button type="button" class="hunt-button" data-evidence="weight">Save to notebook</button><a class="case-return" href="#lock-weight">Back to the counterweight</a></aside><div class="grid">
+<article class="card extra"><span class="stamp" aria-hidden="true">🌿</span><h3>Duckweed</h3><p>Look for little green dots floating in a cluster. Tommy grazes at the edge and sometimes leaves with a dot stuck to his nose.</p></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🐌</span><h3>The snail on the step</h3><p>Tommy watched a snail cross his rock. At the edge he thought it would turn around. It crawled straight down the side.</p><details class="field-hunt"><summary>Look at the trail on the rock</summary><p>There’s a silvery loop at the end. Mabel must have turned back to say hello.</p><button type="button" class="hunt-button field-hunt" data-treasure="snail">Keep Mabel’s trail print</button></details></article>
+<article class="card extra"><span class="stamp" aria-hidden="true">🪷</span><h3>Under the lily pads</h3><p>Tommy rests under the broad leaves when the water warms up. After rain, he watches drops roll off the edge.</p><button type="button" class="hunt-button field-hunt" data-treasure="lily">Peek under a lily pad</button></article>
+</div></section><section class="section" id="stickers"><div class="sticker-hunt"><p class="eyebrow">Pond discoveries</p><h2>Tommy’s sticker book</h2><p>Find twelve trail stickers and earn a bonus sticker by solving the Moon Lantern mystery.</p><ul class="sticker-grid" id="sticker-grid"></ul><p class="hunt-status" id="hunt-status" role="status"></p><div class="reward"><p id="reward-copy">Collect the twelve trail stickers to unlock Tommy’s trail letter.</p><button type="button" class="hunt-button" id="trail-letter" aria-controls="reward-letter" aria-expanded="false" disabled>Open Tommy’s letter 💌</button><div id="reward-letter" hidden><h3>Dear Pond Explorer,</h3><p>You looked under things, listened to things, and waited long enough for a seed to wake up. That’s how I know you could find your way around any pond. I saved you the sunny end of the rock.</p><p>Love, Tommy 🐢</p></div></div></div></section><section class="section" id="friends"><p class="eyebrow">Tommy’s neighbours</p><h2>Friends by the reeds</h2><aside class="case-evidence" id="witness-clue"><p class="eyebrow">Evidence · two witnesses</p><h3>What Pip and Pickles remember</h3><blockquote><strong>Pip:</strong> “I walked immediately ahead of Mabel.”<br><strong>Pickles:</strong> “I walked last. Nobody was behind me.”</blockquote><button type="button" class="hunt-button" data-evidence="witness">Save to notebook</button><a class="case-return" href="#lock-parade">Back to the parade lock</a></aside><div class="grid">
+<article class="card extra friend"><span class="stamp" aria-hidden="true">🐌</span><h3>Mabel</h3><p>Mabel the snail usually arrives halfway through a story. Tommy starts again from the beginning.</p></article>
+<article class="card extra friend"><span class="stamp" aria-hidden="true">🐸</span><h3>Pickles</h3><p>Pickles sings from a different lily pad every evening. Tommy can tell which one by the splash that comes first.</p></article>
+<article class="card extra friend"><span class="stamp" aria-hidden="true">🦆</span><h3>Pip</h3><p>Pip the duckling leaves a wake just right for a tiny turtle to surf. She always circles back for one more lap.</p><button type="button" class="hunt-button field-hunt" data-treasure="pip">Check beside the nest</button></article>
+</div><div class="postcard"><button type="button" class="seal" id="postcard" aria-label="Open a new postcard from Tommy">💌</button><div><h3>Postcards from the pond</h3><p id="postcard-note" aria-live="polite">Open the envelope for a little note from Tommy.</p><button type="button" class="hunt-button field-hunt" data-treasure="stamp" id="postcard-treasure" hidden>Keep the postcard stamp</button></div></div></section><section class="section" id="trail-stops"><p class="eyebrow">Three new trail stops</p><h2>Beyond the cattails</h2><aside class="case-evidence" id="creek-clue"><p class="eyebrow">Evidence · supply tray</p><h3>Creek inventory</h3><p>The tray held <strong>three shells and two reeds</strong>. The tray itself is already balanced, so only count what’s in it.</p><button type="button" class="hunt-button" data-evidence="creek">Save to notebook</button><a class="case-return" href="#lock-weight">Back to the counterweight</a></aside><aside class="case-evidence" id="nursery-clue"><p class="eyebrow">Evidence · nursery tag</p><h3>The keeper’s reading rule</h3><p>“A little word grows from the first letter of each line. Read from the top.”</p><button type="button" class="hunt-button" data-evidence="tag">Save to notebook</button><a class="case-return" href="#lock-word">Back to the word lock</a></aside><div class="grid">
+<article class="card extra trail-stop"><span class="stamp" aria-hidden="true">🪨</span><h3>Pebble Creek</h3><p>Tommy left something under the stepping stone that looks like a pancake.</p><div class="trail-actions" role="group" aria-label="Creek stones"><button type="button" class="hunt-button" data-stone="round">Round stone</button><button type="button" class="hunt-button" data-stone="flat">Flat stone</button><button type="button" class="hunt-button" data-stone="pointy">Pointy stone</button></div><p class="trail-feedback" id="creek-feedback" role="status"></p><button type="button" class="hunt-button" data-treasure="creek" id="creek-prize" hidden>Keep the creek shell</button></article>
+<article class="card extra trail-stop"><span class="stamp" aria-hidden="true">🌱</span><h3>Tommy’s Nursery</h3><p>Water the clay pot three times to wake up its sleepy seedling.</p><div class="trail-actions"><button type="button" class="hunt-button" id="water-pot">Water the pot 💧</button></div><p class="trail-feedback" id="garden-feedback" role="status">The soil is dry.</p><button type="button" class="hunt-button" data-treasure="seed" id="garden-prize" hidden>Keep the seedling sticker</button></article>
+<article class="card extra trail-stop"><span class="stamp" aria-hidden="true">🎐</span><h3>Chime Bridge</h3><p>Tap the low note, jump to the high note, then finish in the middle.</p><div class="trail-actions" role="group" aria-label="Bridge chimes"><button type="button" class="hunt-button" data-chime="low">Low ♪</button><button type="button" class="hunt-button" data-chime="mid">Middle ♪</button><button type="button" class="hunt-button" data-chime="high">High ♪</button></div><p class="trail-feedback" id="chime-feedback" role="status"></p><button type="button" class="hunt-button" data-treasure="chime" id="chime-prize" hidden>Keep the chime ribbon</button></article>
+</div></section><section class="section about" id="about"><h2>About Tommy</h2><p>I hatched by the reeds. I’m still getting the hang of diving, and I can spot my favourite rock from the other side of the pond. Next on my list is finding out what’s behind the cattails.</p><dl class="facts"><div><dt>Home</dt><dd>The reed bank</dd></div><div><dt>Favourite snack</dt><dd>Duckweed</dd></div><div><dt>Working on</dt><dd>Longer dives</dd></div></dl><h3 class="day-heading">A day with Tommy</h3><ul class="daybook"><li><time datetime="07:15">7:15 am</time> Check for duckweed by the reed bank.</li><li><time datetime="12:30">12:30 pm</time> Bask on the flat rock while it’s warm.</li><li><time datetime="17:00">5:00 pm</time> Practise a dive before heading back under the reeds.</li></ul><aside class="case-evidence" id="pond-window"><p class="eyebrow">Evidence · lookout inscription</p><h3>Four lines on the rail</h3><blockquote>Rain rests on the lily.<br>Evening quiets the reeds.<br>Every ripple carries the glow.<br>Dusk brings the small boats home.</blockquote><button type="button" class="hunt-button" data-evidence="poem">Save to notebook</button><a class="case-return" href="#lock-word">Back to the word lock</a></aside><div class="pond-window"><div class="pond-scene" id="pond-scene" data-mood="sun" aria-hidden="true">☀️</div><div><h3>Look out over the pond</h3><div class="pond-moods" role="group" aria-label="Pond weather"><button type="button" class="hunt-button" data-mood-picker="sun" aria-pressed="true">Sun</button><button type="button" class="hunt-button" data-mood-picker="rain" aria-pressed="false">Rain</button><button type="button" class="hunt-button" data-mood-picker="night" aria-pressed="false">Moonlight</button></div><p class="pond-caption" id="pond-caption" aria-live="polite">Sunlight warms the flat rock. Tommy stretches one foot into the water.</p><button type="button" class="hunt-button" data-treasure="moon" id="moon-treasure" hidden>Pick up the moon pebble</button></div></div></section><section class="section" id="lantern-path"><h2>The bridge record</h2><div class="case-evidence"><p class="eyebrow">Evidence · night watch</p><h3>The watchkeeper’s turn log</h3><p>At the bridge, the lantern keeper stood facing <strong>east</strong>. The log lists these turns in order:</p><ol><li>Turn right.</li><li>Make a U-turn.</li><li>Turn left.</li></ol><p>Each turn is relative to the way the keeper is facing at that moment.</p><button type="button" class="hunt-button" data-evidence="bridge">Save to notebook</button><a class="case-return" href="#lock-compass">Back to the compass lock</a></div></section></main><footer>Tommy’s pond journal</footer></div>
+<script>
+function brush(id) {
+ const c = document.getElementById(id).getContext('2d');
+ function shape(x,y,rx,ry,color,angle=0) {
+  c.fillStyle=color; c.beginPath(); c.ellipse(x,y,rx,ry,angle,0,Math.PI*2); c.fill();
+ }
+ function line(points,color,width=2) {
+  c.strokeStyle=color;c.lineWidth=width;c.lineCap='round';c.beginPath();
+  points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.stroke();
+ }
+ function turtle(x,y,s) {
+  c.save();c.translate(x,y);c.scale(s,s);
+  shape(-97,14,21,8,'#64794d',.2);
+  shape(-65,28,29,15,'#536f46',-.3);shape(33,31,29,15,'#536f46',.25);
+  shape(65,3,51,31,'#7a985e',-.13);shape(87,-22,44,37,'#92ad6a',-.14);
+  shape(105,-34,8,10,'#293929');shape(107,-37,2.4,2.4,'#fff9db');
+  line([[115,-14],[120,-14],[123,-17]],'#405b39');shape(110,-8,8,4,'#d0a473');
+  shape(-25,-5,89,49,'#3a5337',-.04);shape(-28,-18,83,42,'#6f824b',-.07);
+  shape(-32,-24,65,31,'#879559',-.07);
+  line([[-103,-4],[-74,-19],[-51,-12],[-28,-30],[0,-29],[21,-14],[53,-14]],'#435e3d',2.4);
+  line([[-74,-19],[-67,-45]],'#435e3d');line([[-28,-30],[-32,-57]],'#435e3d');
+  line([[0,-29],[14,-52]],'#435e3d');line([[-51,-12],[-48,12]],'#435e3d');line([[21,-14],[13,14]],'#435e3d');
+  shape(-58,23,22,12,'#8ba368',-.18);shape(31,26,24,13,'#8ba368',.24);
+  c.restore();
+ }
+ function pad(x,y,s) {
+  c.save();c.translate(x,y);c.scale(s,s);shape(0,0,43,19,'#728b51',-.14);shape(-3,-4,38,15,'#8ca461',-.14);
+  line([[0,-2],[31,-13]],'#576f43');line([[0,-2],[34,2]],'#657e4a');c.restore();
+ }
+ return {c,shape,line,turtle,pad};
+}
+{
+ const {c,shape,line,turtle,pad}=brush('portrait');
+ const g=c.createLinearGradient(0,0,0,595);g.addColorStop(0,'#eef0ca');g.addColorStop(.62,'#b5ca97');g.addColorStop(1,'#81a889');c.fillStyle=g;c.fillRect(0,0,720,595);
+ shape(489,135,79,79,'#f9edb7');
+ shape(130,327,208,75,'#b1c391');shape(608,338,240,92,'#a0b889');
+ shape(353,481,370,127,'#8bae8c');shape(351,433,220,37,'#729579');
+ shape(342,410,185,45,'#a5a389',-.05);shape(345,398,166,34,'#c4bea0',-.05);
+ for(let i=0;i<24;i++){const x=(i*137)%710,y=370+(i*43)%175;line([[x,y],[x+12+i%17,y]],'#abc5a2',2);}
+ for(const [x,y,s] of [[104,426,1.1],[612,438,1.1],[568,491,.72],[143,510,.72],[43,484,.72]])pad(x,y,s);
+ for(const [x,h] of [[26,105],[43,86],[58,135],[682,123],[695,98],[659,68]]) {
+  line([[x,408],[x+8,408-h]],'#5e7e51',3);
+  shape(x+8,408-h,5,17,'#886b4b',.07);
+ }
+ turtle(349,349,1.58);
+ let seed=62;
+ for(let i=0;i<12500;i++){
+  seed=(Math.imul(seed,1664525)+1013904223)>>>0;const x=seed%720;
+  seed=(Math.imul(seed,1664525)+1013904223)>>>0;const y=(seed>>>10)%595;
+  c.fillStyle=i%2?'#ffffff20':'#28372b16';c.fillRect(x,y,1.2,1.2);
+ }
+}
+{
+ const {c,shape,turtle}=brush('rock');c.fillStyle='#f0e6c2';c.fillRect(0,0,420,210);shape(317,58,33,33,'#f9d98a');shape(195,163,115,31,'#a9a68c');shape(190,149,98,21,'#bfbb9e');turtle(189,116,.75);
+}
+{
+ const {c,line,turtle,pad}=brush('swim');c.fillStyle='#cbded0';c.fillRect(0,0,420,210);for(let i=0;i<14;i++){const x=(i*89)%420,y=(i*37)%210;line([[x,y],[x+25,y]],'#a2c5b2',2);}pad(83,153,1);pad(335,67,.8);turtle(211,113,.69);
+}
+{
+ const {c,shape,line}=brush('leaf');c.fillStyle='#e8ebcc';c.fillRect(0,0,420,210);shape(211,107,88,43,'#8ea15e',-.44);shape(211,107,11,8,'#e8ebcc',-.44);line([[123,153],[195,115]],'#526a43',3);line([[225,101],[280,73]],'#526a43',3);line([[176,126],[166,100]],'#526a43');line([[242,93],[266,106]],'#526a43');
+}
+</script><script>
+(() => {
+ const get = id => document.getElementById(id);
+ const toggle = get('motion');
+ let paused = false;
+ try {paused = localStorage.getItem('tommy-motion') === 'off';} catch {}
+ function setMotion() {
+  document.documentElement.classList.toggle('motion-off', paused);
+  toggle.setAttribute('aria-pressed', String(paused));
+  toggle.textContent = paused ? 'Play motion' : 'Pause motion';
+ }
+ toggle.addEventListener('click', () => {
+  paused = !paused;
+  setMotion();
+  try {localStorage.setItem('tommy-motion', paused ? 'off' : 'on');} catch {}
+ });
+ setMotion();
+
+ const ponds = [
+  {name:'Sunny Shallows',par:18,rows:['T..#..L','.#.#...','...L.#.','.##....','L...#.H']},
+  {name:'Reed Bend',par:16,rows:['T.#...L','..#.#..','L...#.H','.###.#.','...L...']},
+  {name:'Rock Garden',par:22,rows:['T..#..L','##.#.#.','L..#...','.#...#.','...L.#H']},
+  {name:'Current Crossing',par:18,rows:['T..>..L','.#.#v#.','L...<..','.#^#.#.','...L..H']},
+  {name:'Twisted Cattails',par:24,rows:['T#L..#H','.v#^.^.','..>L...','.#^#<#.','L...L..']},
+  {name:'The Reed Gate',par:20,rows:['T..#..L','.#...##','L..#.GH','.#.K.##','...L...']},
+  {name:'Duckweed Lock',par:22,rows:['T..>..L','.#.#v#.','L..K<..','.#^#.##','...L.GH']},
+  {name:'Moonlit Maze',par:24,rows:['T#L..#H','.v#^.^G','..>L...','.#^#<#.','L..KL..']}
+ ];
+ const currents = {'<':'←','^':'↑','v':'↓','>':'→'};
+ const directionCode = (row,column) => row===1?'v':row===-1?'^':column===1?'>':'<';
+ const badgeKey = 'tommy-pond-badges-v1';
+ const badges = new Set();
+ try {
+  const saved=JSON.parse(localStorage.getItem(badgeKey)||'[]');
+  if (Array.isArray(saved)) saved.filter(key => /^[0-7]:(par|clean)$/.test(key)).forEach(key => badges.add(key));
+ } catch {}
+ const arrows = {ArrowLeft:[0,-1],ArrowUp:[-1,0],ArrowDown:[1,0],ArrowRight:[0,1]};
+ const icons = {key:'🔑',gate:'▥','open-gate':'▱',rock:'🪨',leaf:'🍃',home:'✿',water:'',turtle:'🐢'};
+ const board = get('board');
+ const next = get('next');
+ const picker = get('pond-picker');
+ picker.append(...ponds.map(({name},index) => {
+  const option=document.createElement('option');
+  option.value=String(index);
+  option.textContent=(index+1)+'. '+name;
+  return option;
+ }));
+ const tiles = Array.from({length:35}, (_,index) => {
+  const button = document.createElement('button');
+  button.className = 'tile';
+  button.type = 'button';
+  button.tabIndex = -1;
+  button.innerHTML = '<span aria-hidden="true"></span>';
+  button.addEventListener('click', () => {
+   board.focus({preventScroll:true});
+   const row = Math.floor(index/7)-Math.floor(position/7);
+   const column = index%7-position%7;
+   if (Math.abs(row)+Math.abs(column)===1) swim(row,column);
+   else if (!won) announce('Tap a tile next to Tommy.');
+  });
+  board.append(button);
+  return button;
+ });
+ let level = 0, map, position, remaining, moves, bumps, keyFound, won;
+ const announce = message => {get('game-status').textContent = message;};
+ function draw() {
+  tiles.forEach((tile,index) => {
+   const kind = index===position ? 'turtle' : map[index]==='#' ? 'rock' : remaining.has(index) ? 'leaf' : map[index]==='H' ? 'home' : currents[map[index]] ? 'current' : map[index]==='K'&&!keyFound ? 'key' : map[index]==='G' ? (keyFound?'open-gate':'gate') : 'water';
+   tile.dataset.flow = kind==='turtle' ? currents[map[index]] || '' : '';
+   if (kind==='turtle') tile.setAttribute('aria-label','Tommy, row '+(Math.floor(index/7)+1)+', column '+(index%7+1)+(tile.dataset.flow?', current '+tile.dataset.flow:''));
+   if (tile.dataset.kind!==kind || kind==='current') {
+    tile.dataset.kind=kind;
+    tile.firstElementChild.textContent=kind==='current'?currents[map[index]]:icons[kind];
+    if (kind!=='turtle') tile.setAttribute('aria-label', (kind==='current'?'Current '+currents[map[index]]:kind)+', row '+(Math.floor(index/7)+1)+', column '+(index%7+1));
+   }
+  });
+  get('level').textContent = 'Pond '+(level+1)+' / '+ponds.length;
+  get('leaves').textContent = remaining.size+' leaves left';
+  get('moves').textContent = moves+(moves===1?' move':' moves');
+  picker.value=String(level);
+  updateGoal('par', 'Finish in '+ponds[level].par+' moves or fewer', moves>ponds[level].par);
+  updateGoal('clean', 'Finish with no blocked moves', bumps>0);
+  get('badge-total').textContent=badges.size+' / '+(ponds.length*2)+' badges earned';
+  board.dataset.won = String(won);
+  next.disabled = !won;
+  next.textContent = level===ponds.length-1 ? 'Play all again ↻' : 'Next pond →';
+ }
+ function updateGoal(key,label,missed) {
+  const goal=get(key+'-goal');
+  const earned=badges.has(level+':'+key);
+  goal.dataset.state=earned?'earned':missed?'missed':'open';
+  goal.textContent=(earned?'✓ Badge earned · ':missed?'Missed this run · ':'')+label;
+ }
+ function start() {
+  map=ponds[level].rows.join('');
+  position=map.indexOf('T');
+  remaining=new Set(Array.from(map, (cell,index) => cell==='L' ? index : -1).filter(index => index>=0));
+  moves=0; bumps=0; keyFound=false;
+  won=false;
+  announce('Tommy is ready to swim.');
+  draw();
+ }
+ function swim(row,column) {
+  if (won) return;
+  const y=Math.floor(position/7)+row, x=position%7+column;
+  const target=y*7+x;
+  if (currents[map[position]] && map[position]!==directionCode(row,column)) {
+   bumps++;
+   announce('Follow the current '+currents[map[position]]+'.');
+   draw();
+   return;
+  }
+  if (x<0||x>=7||y<0||y>=5||map[target]==='#') {
+   bumps++; announce('That way is blocked.'); draw();
+   return;
+  }
+  if (map[target]==='G' && !keyFound) {
+   bumps++;
+   announce('The reed gate is locked. Find the key first.');
+   draw();
+   return;
+  }
+  const unlocked=map[target]==='K' && !keyFound;
+  if (unlocked) keyFound=true;
+  position=target;
+  moves++;
+  const picked=remaining.delete(position);
+  won=map[position]==='H' && remaining.size===0;
+  if (won) {
+   const before=badges.size;
+   if (moves<=ponds[level].par) badges.add(level+':par');
+   if (bumps===0) badges.add(level+':clean');
+   if (badges.size>before) {
+    try {localStorage.setItem(badgeKey,JSON.stringify([...badges]));} catch {}
+   }
+   if (badges.size>0) document.dispatchEvent(new CustomEvent('tommy-sticker',{detail:'dash'}));
+   const earned=badges.size-before;
+   announce('Pond cleared in '+moves+' moves!'+(earned?' '+earned+' new '+(earned===1?'badge.':'badges.'):''));
+  }
+  else if (unlocked) announce('Key collected! The reed gate is open.');
+  else if (map[position]==='H') announce('Tommy found the lily pad. Gather the remaining leaves first.');
+  else if (picked) announce(remaining.size ? 'Leaf collected! '+remaining.size+' left.' : 'All leaves collected. Swim to the yellow lily pad!');
+  else announce('Tommy swam to row '+(y+1)+', column '+(x+1)+'.');
+  draw();
+ }
+ board.addEventListener('keydown', event => {
+  const direction=arrows[event.key];
+  if (!direction) return;
+  event.preventDefault();
+  swim(...direction);
+ });
+ document.querySelectorAll('.direction').forEach(button => {
+  button.addEventListener('click', () => swim(...arrows[button.dataset.key]));
+ });
+ picker.addEventListener('change', () => {level=Number(picker.value);start();});
+ get('restart').addEventListener('click', () => {start();board.focus();});
+ next.addEventListener('click', () => {level=(level+1)%ponds.length;start();board.focus();});
+ start();
+})();
+</script><script>
+(() => {
+ const get=id=>document.getElementById(id);
+ const motifs=[
+  ['🐢','Tommy'],['🪷','Lily'],['🪶','Feather'],['🐌','Mabel'],['🐸','Pickles'],['🍃','Leaf']
+ ];
+ const board=get('memory-board');
+ const status=get('memory-status');
+ let first=null, turns=0, pairs=0, pending=null, best=null;
+ try {
+  const saved=Number(localStorage.getItem('tommy-pairs-best'));
+  if (Number.isSafeInteger(saved) && saved>=motifs.length) best=saved;
+ } catch {}
+ function scores() {
+  get('pair-count').textContent=pairs+' / '+motifs.length+' pairs';
+  get('turn-count').textContent=turns+(turns===1?' turn':' turns');
+  get('memory-best').textContent=best?'Best: '+best+' turns':'No best score yet';
+ }
+ function show(card,face) {
+  card.button.dataset.face=face;
+  card.button.textContent=face==='down'?'✦':card.motif[0];
+  card.button.setAttribute('aria-label','Card '+card.number+', '+(face==='down'?'face down':card.motif[1]+(face==='matched'?', matched':'')));
+  card.button.setAttribute('aria-disabled',String(face!=='down'));
+ }
+ function flip(card) {
+  if (pending!==null || card.button.dataset.face!=='down') return;
+  show(card,'up');
+  if (first===null) {
+   first=card;
+   status.textContent=card.motif[1]+'. Choose another card.';
+   return;
+  }
+  turns++;
+  const previous=first;
+  first=null;
+  if (previous.motif===card.motif) {
+   show(previous,'matched');show(card,'matched');pairs++;
+   if (pairs===motifs.length) {
+    document.dispatchEvent(new CustomEvent('tommy-sticker',{detail:'pairs'}));
+    const record=best===null||turns<best;
+    if (record) {
+     best=turns;
+     try {localStorage.setItem('tommy-pairs-best',String(best));} catch {}
+    }
+    status.textContent='All six pairs found in '+turns+' turns!'+(record?' New best!':'');
+   } else status.textContent='You matched '+card.motif[1]+'!';
+  } else {
+   status.textContent=previous.motif[1]+' and '+card.motif[1]+'. Try another pair.';
+   pending=setTimeout(() => {show(previous,'down');show(card,'down');pending=null;},800);
+  }
+  scores();
+ }
+ function shuffle() {
+  if (pending!==null) clearTimeout(pending);
+  pending=null;first=null;turns=0;pairs=0;
+  const deck=[...motifs,...motifs];
+  for(let i=deck.length-1;i>0;i--) {
+   const j=Math.floor(Math.random()*(i+1));
+   [deck[i],deck[j]]=[deck[j],deck[i]];
+  }
+  const cards=deck.map((motif,index) => {
+   const button=document.createElement('button');
+   button.type='button';
+   const card={motif,button,number:index+1};
+   show(card,'down');
+   button.addEventListener('click',()=>flip(card));
+   return card;
+  });
+  board.replaceChildren(...cards.map(card=>card.button));
+  status.textContent='The cards are ready.';
+  scores();
+ }
+ get('shuffle').addEventListener('click',shuffle);
+ shuffle();
+ const notes=[
+  'I saved you the warm corner of my rock. — Tommy',
+  'Mabel and I raced to the reeds. We agreed to finish tomorrow. — Tommy',
+  'Pip says hello. Actually, she said quack twice. — Tommy',
+  'There’s a leaf floating by with a little window in it. I thought of you. — Tommy'
+ ];
+ let note=0;
+ get('postcard').addEventListener('click',()=> {
+  get('postcard-note').textContent=notes[note];
+  get('postcard-treasure').hidden=false;
+  note=(note+1)%notes.length;
+ });
+})();
+</script><script>
+(() => {
+ const get=id=>document.getElementById(id);
+ const stickers={
+  spark:['✦','Pond sparkle','Look near Tommy’s portrait.','top','bank'],
+  lily:['🪷','Lily blossom','Check the lily pads in the field guide.','field-guide','journal'],
+  stamp:['💌','Pond postmark','Open a postcard from Tommy.','friends','friends'],
+  moon:['🌙','Moon pebble','Look out over the pond after dark.','pond-window','lookout'],
+  dash:['🏅','Pond navigator','Earn a badge in Lily Pad Dash.','play','games'],
+  pairs:['🐢','Treasure matcher','Find every pair in Pond Pairs.','memory','games'],
+  journal:['🐚','Shell bookmark','Read the journal entry about a shell between the pages.','adventures','journal'],
+  snail:['🐌','Mabel’s trail print','Look at the trail on Mabel’s rock in the field guide.','field-guide','journal'],
+  pip:['🪶','Pip’s feather','Check beside Pip’s nest.','friends','friends'],
+  creek:['🐚','Creek shell','Lift the pancake-shaped stone.','trail-stops','stops'],
+  seed:['🌱','Sleepy seedling','Give the pot three drinks of water.','trail-stops','stops'],
+  detective:['🔎','Moonlight Detective','Solve the Moon Lantern mystery.','mystery','case'],
+  chime:['🎀','Chime ribbon','Tap the chimes in Tommy’s order.','trail-stops','stops']
+ };
+ const storageKey='tommy-stickers-v1';
+ const collected=new Set();
+ try {
+  const stored=JSON.parse(localStorage.getItem(storageKey)||'[]');
+  if (Array.isArray(stored)) stored.filter(key=>Object.hasOwn(stickers,key)).forEach(key=>collected.add(key));
+  const badges=JSON.parse(localStorage.getItem('tommy-pond-badges-v1')||'[]');
+  if (Array.isArray(badges)&&badges.some(key=>/^[0-7]:(par|clean)$/.test(key))) collected.add('dash');
+  const best=Number(localStorage.getItem('tommy-pairs-best'));
+  if (Number.isSafeInteger(best)&&best>=6) collected.add('pairs');
+  const moonCase=JSON.parse(localStorage.getItem('tommy-moon-case-v1')||'{}');
+  if (Array.isArray(moonCase.solved)&&moonCase.solved.includes('final')) collected.add('detective');
+ } catch {}
+ const treasures=[...document.querySelectorAll('[data-treasure]')];
+ const entries=Object.entries(stickers).map(([key,[icon,title,hint,destination,zone]])=>{
+  const li=document.createElement('li');
+  const symbol=document.createElement('span');
+  symbol.className='sticker-symbol';
+  symbol.setAttribute('aria-hidden','true');
+  const name=document.createElement('strong');
+  name.textContent=title;
+  const clue=document.createElement('small');
+  const hintBox=document.createElement('details');
+  const summary=document.createElement('summary');
+  summary.textContent='Show clue';
+  const clueText=document.createElement('p');
+  clueText.textContent=hint;
+  const link=document.createElement('a');
+  link.href='#'+destination;
+  link.textContent='Go to this spot';
+  hintBox.append(summary,clueText,link);
+  li.append(symbol,name,clue,hintBox);
+  return {key,icon,zone,li,symbol,clue,hintBox};
+ });
+ const zones=[...document.querySelectorAll('[data-zone]')];
+ const letter=get('trail-letter');
+ letter.addEventListener('click',()=>{
+  const note=get('reward-letter');
+  note.hidden=!note.hidden;
+  letter.setAttribute('aria-expanded',String(!note.hidden));
+  letter.textContent=note.hidden?'Open Tommy’s letter 💌':'Close Tommy’s letter';
+ });
+ get('sticker-grid').append(...entries.map(item=>item.li));
+ function draw(message='') {
+  entries.forEach(({key,icon,li,symbol,clue,hintBox})=>{
+   const found=collected.has(key);
+   li.dataset.found=String(found);
+   symbol.textContent=found?icon:'◇';
+   clue.textContent=found?'Collected':'To find';
+   hintBox.hidden=found;
+  });
+  zones.forEach(zone=>{
+   const matches=entries.filter(entry=>entry.zone===zone.dataset.zone);
+   zone.textContent=matches.filter(entry=>collected.has(entry.key)).length+' / '+matches.length+' found';
+  });
+  letter.disabled=entries.some(entry=>entry.zone!=='case' && !collected.has(entry.key));
+  if (!letter.disabled) get('reward-copy').textContent='Trail complete! Tommy left you a letter.';
+  treasures.forEach(button=>{button.dataset.found=String(collected.has(button.dataset.treasure));});
+  get('hunt-status').textContent=(message?message+' ':'')+collected.size+' / '+entries.length+' stickers collected.';
+ }
+ function collect(key) {
+  if (!Object.hasOwn(stickers,key)) return;
+  const already=collected.has(key);
+  collected.add(key);
+  try {localStorage.setItem(storageKey,JSON.stringify([...collected]));} catch {}
+  draw(already?'Already in your sticker book.':'Found: '+stickers[key][1]+'!');
+ }
+ treasures.forEach(button=>button.addEventListener('click',()=>{
+  collect(button.dataset.treasure);
+  button.textContent='✓ '+stickers[button.dataset.treasure][1]+' collected';
+ }));
+ document.addEventListener('tommy-sticker',event=>collect(event.detail));
+ document.querySelectorAll('[data-stone]').forEach(button=>button.addEventListener('click',()=>{
+  const found=button.dataset.stone==='flat';
+  get('creek-feedback').textContent=found?'There’s a little shell underneath!':'Just cool mud. Try another stone.';
+  if (found) get('creek-prize').hidden=false;
+ }));
+ const growth=['The soil darkens.','A green tip peeks out.','Two leaves unfold!'];
+ let drinks=0;
+ get('water-pot').addEventListener('click',()=>{
+  get('garden-feedback').textContent=growth[drinks++];
+  if (drinks===growth.length) {
+   get('garden-prize').hidden=false;
+   get('water-pot').disabled=true;
+  }
+ });
+ const song=['low','high','mid'];
+ let position=0;
+ document.querySelectorAll('[data-chime]').forEach(button=>button.addEventListener('click',()=>{
+  if (position===song.length) return;
+  if (button.dataset.chime!==song[position]) {
+   position=0;
+   get('chime-feedback').textContent='Try again from the low note.';
+   return;
+  }
+  position++;
+  get('chime-feedback').textContent=['One note rings out.','Two notes ring out.','A tiny ribbon shakes loose!'][position-1];
+  if (position===song.length) get('chime-prize').hidden=false;
+ }));
+ const scenes={
+  sun:['☀️','Sunlight warms the flat rock. Tommy stretches one foot into the water.'],
+  rain:['🌧️','Raindrops drum on the lily pads. Pickles joins in from under a leaf.'],
+  night:['🌙','The pond goes quiet. In the shallows, a pale pebble catches the moonlight.']
+ };
+ const pickers=[...document.querySelectorAll('[data-mood-picker]')];
+ pickers.forEach(button=>button.addEventListener('click',()=>{
+  const mood=button.dataset.moodPicker;
+  const [icon,caption]=scenes[mood];
+  get('pond-scene').dataset.mood=mood;
+  get('pond-scene').textContent=icon;
+  get('pond-caption').textContent=caption;
+  get('moon-treasure').hidden=mood!=='night';
+  pickers.forEach(picker=>picker.setAttribute('aria-pressed',String(picker===button)));
+ }));
+ draw();
+})();
+</script><script>
+(() => {
+ const get=id=>document.getElementById(id);
+ const storageKey='tommy-moon-case-v1';
+ const locks={
+  parade:{answer:'Pip,Mabel,Tommy,Pickles',seal:'Reed · 4',wrong:'Compare who walked next to Mabel with who went last.'},
+  word:{answer:'REED',seal:'Moon · 7',wrong:'Read the four lines from the top, using the nursery rule.'},
+  weight:{answer:'21',seal:'Shell · 9',wrong:'Use both notes to find the weight of one shell and one reed.'},
+  compass:{answer:'WEST',seal:'Star · 2',wrong:'Apply one turn at a time, using the direction you now face.'},
+  final:{answer:'7249',wrong:'Arrange the seals using all three rules of the inscription.'}
+ };
+ const evidence={
+  journal:'Rehearsal journal: Mabel walked ahead of Tommy.',
+  witness:'Witnesses: Pip walked immediately ahead of Mabel. Pickles walked last.',
+  weight:'Pebble scale: one shell + two reeds = 11 pebbles. A shell weighs two more than a reed.',
+  creek:'Creek inventory: three shells and two reeds. The tray itself is already balanced.',
+  tag:'Nursery tag: read the first letter of each line, from the top.',
+  poem:'Lookout inscription: Rain rests on the lily. / Evening quiets the reeds. / Every ripple carries the glow. / Dusk brings the small boats home.',
+  bridge:'Bridge record: start facing east. Turn right, make a U-turn, then turn left.'
+ };
+ const solved=new Set(), notes=new Set();
+ try {
+  const saved=JSON.parse(localStorage.getItem(storageKey)||'{}');
+  if (Array.isArray(saved.solved)) saved.solved.filter(key=>Object.hasOwn(locks,key)).forEach(key=>solved.add(key));
+  if (Array.isArray(saved.notes)) saved.notes.filter(key=>Object.hasOwn(evidence,key)).forEach(key=>notes.add(key));
+ } catch {}
+ const sealLocks=Object.keys(locks).filter(key=>locks[key].seal);
+ const ready=()=>sealLocks.every(key=>solved.has(key));
+ if (!ready()) solved.delete('final');
+ const forms=[...document.querySelectorAll('[data-lock]')];
+ const buttons=[...document.querySelectorAll('[data-evidence]')];
+ function option(text,value) {
+  const node=document.createElement('option');
+  node.textContent=text;
+  node.value=value;
+  return node;
+ }
+ forms.find(form=>form.dataset.lock==='parade').querySelectorAll('select').forEach(select=>{
+  select.append(option('Choose a walker',''),...['Pip','Mabel','Tommy','Pickles'].map(name=>option(name,name)));
+ });
+ function save() {
+  try {localStorage.setItem(storageKey,JSON.stringify({solved:[...solved],notes:[...notes]}));} catch {}
+ }
+ function drawNotes() {
+  get('notebook-count').textContent='· '+notes.size+(notes.size===1?' note':' notes');
+  get('notebook-empty').hidden=notes.size>0;
+  get('notebook-list').replaceChildren(...[...notes].map(key=>{
+   const item=document.createElement('li');
+   item.textContent=evidence[key];
+   return item;
+  }));
+  buttons.forEach(button=>{
+   const found=notes.has(button.dataset.evidence);
+   button.textContent=found?'✓ Saved to notebook':'Save to notebook';
+   button.setAttribute('aria-disabled',String(found));
+  });
+ }
+ function drawLocks() {
+  const complete=solved.has('final');
+  get('case-meter').textContent=complete?'Case solved. The Moon Parade is on!':sealLocks.filter(key=>solved.has(key)).length+' / 4 seals recovered';
+  get('case-seals').replaceChildren(...sealLocks.map(key=>{
+   const seal=document.createElement('span');
+   seal.textContent=solved.has(key)?locks[key].seal:'Unknown seal';
+   return seal;
+  }));
+  get('case-open').disabled=!ready()||complete;
+  get('case-ending').hidden=!complete;
+  forms.forEach(form=>{
+   const key=form.dataset.lock;
+   if (!solved.has(key)) return;
+   get('lock-'+key).dataset.solved='true';
+   form.hidden=true;
+   get('result-'+key).textContent=key==='final'?'The Lantern House is open.':'Seal recovered: '+locks[key].seal;
+  });
+ }
+ buttons.forEach(button=>button.addEventListener('click',()=>{
+  if (notes.has(button.dataset.evidence)) return;
+  notes.add(button.dataset.evidence);
+  save();
+  drawNotes();
+ }));
+ forms.forEach(form=>form.addEventListener('submit',event=>{
+  event.preventDefault();
+  const key=form.dataset.lock;
+  if (solved.has(key)||(key==='final'&&!ready())) return;
+  const data=new FormData(form);
+  const answer=key==='parade'?['first','second','third','fourth'].map(place=>data.get(place)).join(','):String(data.get('answer')).trim().toUpperCase();
+  const result=get('result-'+key);
+  if (answer!==locks[key].answer) {
+   result.textContent='Still locked. '+locks[key].wrong;
+   return;
+  }
+  solved.add(key);
+  save();
+  drawLocks();
+  result.tabIndex=-1;
+  result.focus();
+  if (key==='final') document.dispatchEvent(new CustomEvent('tommy-sticker',{detail:'detective'}));
+ }));
+ drawNotes();
+ drawLocks();
+})();
+</script></body></html>
+
+
+
+
+
+
+
+
+
+
+
